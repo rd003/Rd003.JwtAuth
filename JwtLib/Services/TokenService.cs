@@ -1,7 +1,6 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using JwtLib.Models;
 using Microsoft.IdentityModel.Tokens;
 
 namespace JwtLib.Services;
@@ -21,36 +20,35 @@ public class TokenService : ITokenService
         _timoutInMinute = timoutInMinute;
     }
 
-    public string GenerateAccessToken(ClaimInfo claimInfo)
+    public string GenerateAccessToken(string username, IEnumerable<string>? roles = null, Dictionary<string, object>? additionalClaims = null)
     {
-        if (claimInfo == null)
+        if (string.IsNullOrWhiteSpace(username))
         {
-            throw new ArgumentNullException("ClaimInfo");
-        }
-
-        if (string.IsNullOrWhiteSpace(claimInfo.Username))
-        {
-            throw new ArgumentNullException("Username");
+            throw new ArgumentNullException(nameof(username));
         }
 
         List<Claim> claims = [
-                 new (ClaimTypes.Name, claimInfo.Username),
+                 new (ClaimTypes.Name, username),
             new (JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
              // unique identifier for jwt
              ];
 
         // adding roles to claims
-
-        foreach (var role in claimInfo.Roles)
+        if (roles != null)
         {
-            claims.Add(new Claim(ClaimTypes.Role, role));
+            foreach (var role in roles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role));
+            }
         }
 
         // additional claims
-
-        foreach (var claim in claimInfo.AdditionalClaims)
+        if (additionalClaims != null)
         {
-            claims.Add(new Claim(claim.Key, claim.Value.ToString() ?? ""));
+            foreach (var claim in additionalClaims)
+            {
+                claims.Add(new Claim(claim.Key, claim.Value.ToString() ?? ""));
+            }
         }
 
         return GenerateAccessTokenFromClaims(claims);

@@ -5,5 +5,5 @@ namespace JwtLib.Services;
 
 public interface ITokenService
 {
-    string GenerateAccessToken(IEnumerable<Claim> claims);
+    string GenerateAccessToken(string username, IEnumerable<string>? roles = null, Dictionary<string, object>? additionalClaims = null);
 }
