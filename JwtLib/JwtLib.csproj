@@ -4,11 +4,22 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+
+    <PackageId>Rd003.JwtAuth</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Ravindra Devrani</Authors>
+    <Description>A reusable JWT authentication library for .NET applications</Description>
+    <!-- <PackageProjectUrl>https://github.com/rd003/jwtlib</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/rd003/jwtlib</RepositoryUrl> -->
+    <PackageTags>jwt,authentication,authorization,dotnet,aspnetcore</PackageTags>
+    <!-- <PackageReleaseNotes>Local development version</PackageReleaseNotes> -->
+    
+    <!-- Output Configuration -->
+    <PackageOutputPath>./nupkg</PackageOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.5" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.5" />
   </ItemGroup>
 
 </Project>
