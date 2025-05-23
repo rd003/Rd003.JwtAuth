@@ -7,19 +7,24 @@
     <AssemblyName>Rd003.JwtAuth</AssemblyName>
     
     <PackageId>Rd003.JwtAuth</PackageId>
-    <Version>0.0.5</Version>
+    <Version>1.0.0</Version>
     <Authors>Ravindra Devrani</Authors>
     <Description>A reusable JWT authentication library for .NET applications</Description>
-    <!-- <PackageProjectUrl>https://github.com/rd003/jwtlib</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/rd003/jwtlib</RepositoryUrl> -->
+    <PackageProjectUrl>https://github.com/rd003/Rd003.JwtAuth</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/rd003/Rd003.JwtAuth</RepositoryUrl>
     <PackageTags>jwt,authentication,authorization,dotnet,aspnetcore</PackageTags>
     
     <!-- Output Configuration -->
     <PackageOutputPath>./nupkg</PackageOutputPath>
+
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.5" />
+   <None Include="..\README.md" Pack="true" PackagePath="\"/>
+   <None Include="..\LICENSE.txt" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
 </Project>
