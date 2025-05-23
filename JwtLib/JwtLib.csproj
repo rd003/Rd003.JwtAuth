@@ -7,7 +7,7 @@
     <AssemblyName>Rd003.JwtAuth</AssemblyName>
     
     <PackageId>Rd003.JwtAuth</PackageId>
-    <Version>0.0.4</Version>
+    <Version>1.0.1</Version>
     <Authors>Ravindra Devrani</Authors>
     <Description>A reusable JWT authentication library for .NET applications</Description>
     <PackageProjectUrl>https://github.com/rd003/Rd003.JwtAuth</PackageProjectUrl>
