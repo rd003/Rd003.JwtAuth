@@ -68,7 +68,7 @@ public class TokenService : ITokenService
             Issuer = _validIssuer,
             Audience = _validAudience,
             Subject = new ClaimsIdentity(claims),
-            Expires = DateTime.Now.AddMinutes(_timoutInMinute),
+            Expires = DateTime.UtcNow.AddMinutes(_timoutInMinute),
             SigningCredentials = new SigningCredentials
                           (authSigningKey, SecurityAlgorithms.HmacSha256)
         };

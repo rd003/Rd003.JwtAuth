@@ -34,7 +34,7 @@ using JwtLib.Extensions;
 
 // service section
 int timeOutInMinutes=15;
-builder.Services.AddJwtAuthentication("validAudience", "validIssuer", "secret", timeOutInMinutes);
+builder.Services.AddJwtAuthentication("validIssuer", "validAudience", "secret", timeOutInMinutes);
 ```
 
 - **validIssuer**: URL of the issuer of the JWT (eg: http://localhost:5000)
